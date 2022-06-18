@@ -19,11 +19,12 @@
         <img src="{{ asset($new->file) }}" class="card-img-top">
         @endif
         <div class="card-body">
-            <p class="card-text">{{ $new->id }}</p>
-            <p class="card-text">{{ $new->category->title }}</p>
+            <p class="card-text"><span class="badge bg-secondary">{{ $new->id }}</span></p>
+            <p class="card-text"><span class="badge rounded-pill bg-secondary">{{ $new->category->title }}<span class="badge rounded-pill bg-secondary"></p>
           <h5 class="card-title">{{ $new->title }}</h5>
           <p class="card-text">{{ $new->description }}</p>
           <p class="card-text">@if($new->active) Active @else Inactive @endif</p>
+          <p class="card-text">viewed <span class="badge bg-secondary">{{$new->viewed_count}}</span> times (from database)</p>
           <form action="{{ route('news.destroy', $new->id) }}" method="POST">
             <a href="{{ route('news.show', $new->id) }}" class="btn btn-primary">Show</a>
             @csrf
